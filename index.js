@@ -1,18 +1,23 @@
-let container = document.querySelector(".container");
-container.style.display = "flex";
-container.style.gap = "10px";
+const body = document.querySelector("body");
+const container = document.createElement("div");
+container.style.cssText = "display: flex; flex-direction: column";
+body.appendChild(container);
 
-let canvas = document.createElement("canvas");
-canvas.style.cssText = "width: 500px; height: 500px; background-color: grey";
-container.appendChild(canvas);
+function createRow(col){
+    const square = document.createElement("div");
+    square.style.cssText = "width: 100px; height: 100px; background-color: grey";
+    col.appendChild(square);
+};
 
-const ctx = canvas.getContext("2d");
+function createGrid(rows, cols){
+    for (let i = 0; i < rows; i++){
+        const col = document.createElement("div");
+        col.style.display = "flex";
+        for(let j = 0; j < cols; j++){
+            createRow(col);
+        }
+        container.appendChild(col)
+    }
+};
 
-canvas.addEventListener("mouseover", (event) => {
-    const mouseX = event.mouseX;
-    const mouseY = event.mouseY;
-    
-    ctx.fillStyle = "red";
-    ctx.fillRect(mouseX, mouseY, 1, 1);
-});
-
+createGrid(4, 4);
