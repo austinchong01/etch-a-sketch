@@ -6,6 +6,8 @@ body.appendChild(container);
 
 function createRow(col){
     const square = document.createElement("div");
+    // square.style.width = "100px";
+    // square.style.height = "100px";
     square.style.cssText = "width: 100px; height: 100px; background-color: grey";
     col.appendChild(square);
 };
@@ -21,8 +23,10 @@ function createGrid(rows, cols){
     }
 };
 
-createGrid(4, 4);
+//utilize a 100x100 grid
+//maximum is 100x100, 1x1 box
 
+createGrid(4, 4);
 
 document.addEventListener("mouseover", (event) => {
     if (event.target.style.backgroundColor){
