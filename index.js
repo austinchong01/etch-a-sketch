@@ -3,7 +3,6 @@ const container = document.createElement("div");
 container.style.cssText = "display: flex; flex-direction: column";
 body.appendChild(container);
 
-
 function createRow(col){
     const square = document.createElement("div");
     square.style.cssText = "width: 100px; height: 100px; background-color: grey";
@@ -22,10 +21,3 @@ function createGrid(rows, cols){
 };
 
 createGrid(4, 4);
-
-
-document.addEventListener("mouseover", (event) => {
-    if (event.target.style.backgroundColor){
-        event.target.style.backgroundColor = "yellow";
-    }
-});
